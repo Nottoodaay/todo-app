@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
+import { loadTodos } from "./features/todosSlice";
 import todoReducers from "./features/todosSlice";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
@@ -11,6 +12,8 @@ const store = configureStore({
     todos: todoReducers,
   },
 });
+
+store.dispatch(loadTodos())
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
